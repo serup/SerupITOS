@@ -1,4 +1,5 @@
 #include "types.h"
+#include "gdt.h"
 
 static uint16_t* VideoMemory = (uint16_t*)0xb8000;
 
@@ -69,6 +70,8 @@ extern "C" void kernelMain(void * multiboot_structure, uint32_t magicnumber)
                         "  Copyright (c) 2018, SerupIT\n";
     
         printf(logo);
+       
+        GlobalDescriptorTable gdt;
         
         while(1); // no sense in stopping the kernel, hence infinite loop
 }
